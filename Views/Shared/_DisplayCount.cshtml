@@ -1,0 +1,36 @@
+﻿@model Loan.Data.Models.DisplayCount
+
+<div>
+    <h4>DisplayCount</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProvideName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProvideName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UniqueCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UniqueCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VisitCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VisitCount)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

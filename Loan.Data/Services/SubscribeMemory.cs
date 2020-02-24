@@ -62,5 +62,10 @@ namespace Loan.Data.Services
     {
     return  _db.SaveChanges() > 0;
     }
+
+    public List<Subscribed>  GetSubscribedByUserId(string userid)
+    {
+      return _db.Subscribed.Where(r => r.UserId.Equals(userid)).ToList();
+    }
   }
 }

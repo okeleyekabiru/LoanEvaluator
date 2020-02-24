@@ -2,7 +2,7 @@
 {
   public enum SubscribedMonth
   {
-    OneMonth,
+    OneMonth = 1,
     ThreeMonths,
     SixMonths,
     OneYear

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
@@ -47,21 +48,21 @@ namespace LoanEvaluator
 
 //Uncomment the following lines to enable logging in with third party login providers
             app.UseMicrosoftAccountAuthentication(
-                clientId: "93f4940b-409a-40c0-b524-41e7061d8079",
-                clientSecret: "Tpv0[48Him]hAw-U3TUkoF?Gb:g]@eiV");
+                clientId: ConfigurationManager.AppSettings["microsoftid"],
+                clientSecret: ConfigurationManager.AppSettings["microsoftsecret"]);
 
             //app.UseTwitterAuthentication(
             //   consumerKey: "",
             //   consumerSecret: "");
 
             app.UseFacebookAuthentication(
-               appId: "179766470013039",
-               appSecret: "e9efb82d5679143be0c9cb38dc5e2fce");
+               appId: ConfigurationManager.AppSettings["appid"],
+               appSecret: ConfigurationManager.AppSettings["appsecret"]);
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
-                ClientId = "797052927535-6m9n10fuubtq2rm9edskubu0md1au91d.apps.googleusercontent.com",
-                ClientSecret = "YrK0xerx4sw-nnVsdYkDhaw_"
+                ClientId = ConfigurationManager.AppSettings["clientid"],
+                ClientSecret = ConfigurationManager.AppSettings["clientsecret"]
             });
         }
     }

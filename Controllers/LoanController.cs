@@ -19,13 +19,15 @@ namespace LoanComparerApp.Controllers
     IMapLoan maps;
     private readonly ILoanProvides _pd;
     private readonly ITracker _tracker;
+    private readonly ISubscribed _subscribed;
 
-    public LoanController(ILoan db, IMapLoan map, ILoanProvides pd, ITracker tracker)
+    public LoanController(ILoan db, IMapLoan map, ILoanProvides pd, ITracker tracker,ISubscribed subscribed)
     {
       this.db = db;
       this.maps = map;
       _pd = pd;
       _tracker = tracker;
+      _subscribed = subscribed;
     }
 
     [HttpGet]
@@ -104,33 +106,46 @@ namespace LoanComparerApp.Controllers
     public ActionResult Redirect(int Id)
     {
       var model = maps.Get(Id);
+      var userId = User.Identity.GetUserId();
       if (model == null)
       {
         return RedirectToAction("NotFound");
       }
 
       var website = model.websitelink;
-      var userId = User.Identity.GetUserId();
-//      _tracker.AddToTracker(model.Loansite,userId);
-      var checkIfUserIsAvailable = _tracker.GetvaluebyproviderNameAndUserid(model.Loansite, userId);
-      if (checkIfUserIsAvailable)
+      if (_subscribed.GetSubscribedByUserId(userId).Count > 0)
       {
-        var providertoupdate1 = _pd.GEtLoanProvidersbyName(model.Loansite);
-        providertoupdate1.CountVisit += 1;
-        if (_pd.Commit())
+        _tracker.AddToTracker(model.Loansite, userId);
+        var checkIfUserIsAvailable = _tracker.GetvaluebyproviderNameAndUserid(model.Loansite, userId);
+        if (checkIfUserIsAvailable)
         {
-         return Redirect(website);
+          var providertoupdate1 = _pd.GEtLoanProvidersbyName(model.Loansite);
+          providertoupdate1.CountVisit += 1;
+          if (_pd.Commit())
+          {
+            return Redirect(website);
+          }
+
         }
-        
+
+        var providertoupdate = _pd.GEtLoanProvidersbyName(model.Loansite);
+        providertoupdate.UniqueCountVisit += 1;
+        providertoupdate.CountVisit += 1;
+        _pd.UpdateLoanProvides(providertoupdate);
+        _pd.Commit();
+        return Redirect(website);
       }
 
-      var providertoupdate = _pd.GEtLoanProvidersbyName(model.Loansite);
-      providertoupdate.UniqueCountVisit += 1;
-      providertoupdate.CountVisit += 1;
-      _pd.UpdateLoanProvides(providertoupdate);
-      _pd.Commit();
-      return Redirect(website);
-    }
+      var returnUrl = Request.Url.ToString();
+      var routeValues = new RouteValueDictionary
+      {
+        {"id", Id},
+        {"returnUrl", returnUrl}
+      };
+
+      return RedirectToAction("Subscribe", "Subscribed", routeValues
+    );
+  }
 
     [HttpGet]
     public ActionResult CreateLoan()

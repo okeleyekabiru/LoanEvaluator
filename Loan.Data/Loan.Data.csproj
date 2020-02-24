@@ -138,6 +138,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AllLoanAmount.cs" />
     <Compile Include="Models\ClickTracker.cs" />
+    <Compile Include="Models\DisplayCount.cs" />
     <Compile Include="Models\Duration.cs" />
     <Compile Include="Models\LoanProviders.cs" />
     <Compile Include="Models\LoanPurpose.cs" />

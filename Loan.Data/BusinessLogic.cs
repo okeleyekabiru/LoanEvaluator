@@ -19,7 +19,7 @@ namespace Loan.Data
       {
         case 5000:
            subscribepackage = Subscribe.Basic;
-           month = SubscribedMonth.OneMonth;
+           month = SubscribedMonth.OneMonth ;
           break;
         case 10000:
           subscribepackage = Subscribe.Premium;

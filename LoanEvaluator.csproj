@@ -482,6 +482,7 @@
     <Content Include="Views\Shared\_subscribepackage.cshtml" />
     <Content Include="Views\Subscribed\Subscribe.cshtml" />
     <Content Include="Views\Subscribed\Failed.cshtml" />
+    <Content Include="Views\Shared\_DisplayCount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

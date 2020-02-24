@@ -16,6 +16,8 @@ namespace Loan.Data.Services
      void DeactivatedSub(string userid);
      void ActivatedSub(string userid);
      bool comit();
+    List<Subscribed> GetSubscribedByUserId(string userid);
+
 
    }
 }
