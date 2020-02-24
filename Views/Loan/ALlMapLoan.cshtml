@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Loan.Data.Models.MapLoans>
+
+@{
+    ViewBag.Title = "ALlMapLoan";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+\<div class="container mt-5">
+    <table class="table table-hover table-responsive-lg  table-active">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Loansite)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MinimumLoan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaximumLoan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.websitelink)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Loansite)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MinimumLoan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaximumLoan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.websitelink)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

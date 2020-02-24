@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div class="container fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
+        <a class="navbar-brand" href="#">
+            @Html.ActionLink("LoanComparer", "Index", "Loan", new { area = "" }, new { @class = "navbar-brand" })
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active navbar-text ml-5">
+                    <a class="nav-link text-white" href="#">@Html.ActionLink("Home", "Index", "Loan") <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item navbar-text ml-5">
+                    <a class="nav-link" href="#">@Html.ActionLink("view loans", "AllLoan", "Loan")</a>
+                </li>
+                <li class="nav-item navbar-text ml-4">
+                    <a class="nav-link" href="#">@Html.ActionLink("Create", "CreateLoan", "Loan")</a>
+                </li>
+                <li class="nav-item navbar-text ml-5">
+                    <a class="nav-link" href="#">@Html.ActionLink("maploan", "AllMaploan", "Loan")</a>
+                </li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+
+        </div>
+
+    </nav>
+</div>
+<div>
+    @RenderBody()
+    <footer class="container mt-5">
+        <p>&copy; @DateTime.Now.Year - loan Comparer</p>
+    </footer>
+</div>
+@Scripts.Render("~/bundles/jquery")
+
+
+
+
+@RenderSection("scripts", required: false)
+</body>
+</html>

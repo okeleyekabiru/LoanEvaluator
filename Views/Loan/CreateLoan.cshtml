@@ -1,0 +1,69 @@
+﻿@model Loan.Data.Models.MapLoans
+
+@{
+    ViewBag.Title = "CreateLoan";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<div class="d-flex justify-content-center mt-5">
+    <h2>CreateLoan</h2>
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="d-flex justify-content-center">
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group ">
+                @Html.LabelFor(model => model.Loansite, htmlAttributes: new { @class = "control-label col-md-2 " })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Loansite, new { htmlAttributes = new { @class = "form-control form-control-lg" } })
+                    @Html.ValidationMessageFor(model => model.Loansite, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Rate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Rate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Rate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MinimumLoan, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.MinimumLoan, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MinimumLoan, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MaximumLoan, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.MaximumLoan, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MaximumLoan, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.websitelink, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.websitelink, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.websitelink, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group text-center mr-5">
+
+                <input type="submit" value="Create" class="btn btn-warning" />
+
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

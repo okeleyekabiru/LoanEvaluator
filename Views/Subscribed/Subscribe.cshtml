@@ -1,0 +1,91 @@
+﻿@model  Loan.Data.Models.SubscriptionModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Subscribe</title>
+</head>
+<body>
+
+
+    <link rel="stylesheet" href="/Content/Subscribe.css" />
+<div class=" container mx-auto">
+        <div class="pricing-wrapper clearfix ">
+            <h1 class="pricing-table-title " style="text-transform: uppercase; text-align: center;color: red "> Subscription </h1>
+            @using (Html.BeginForm())
+            {
+                <div class="pricing-table">
+                    <h3 class="pricing-title">Basic</h3>
+                    <div class="price">&#8358; @Model.Basic<sup>/ mes</sup></div>
+                    <ul class="table-list">
+                        <li>Access more Loan <span> providers</span></li>
+                        <li>receive update <span>Latest Loan providers</span></li>
+                        <li>Unlimited Access <span class="unlimited">Huge Loan provider with little interest</span></li>
+                        <li>one <span class="unlimited">Months</span></li>
+                        <input type="hidden" name=" sub" value="5000" />
+                    </ul>
+                    <input type="hidden" value="Basic" name="package"/>
+                    <input type="hidden" value="@Model.Basic" name="amount"/>
+                    <div class="table-buy">
+                        <p >@Model.Basic<sup>/ mes</sup></p>
+                        
+                        <button type="submit" class="pricing-action">Subscribe</button>
+                    </div>
+                </div>
+            }
+            @using (Html.BeginForm())
+            {
+        <div class="pricing-table recommended">
+            <h3 class="pricing-title">Premium</h3>
+            <div class="price">&#8358;@Model.Premium<sup>/ mes</sup></div>
+            <input type="hidden" value="Premium" name="package" />
+            <input type="hidden" value="@Model.Premium" name="amount" />
+            <ul class="table-list">
+                <li>Access more Loan <span> providers</span></li>
+                <li>receive update <span>Latest Loan providers</span></li>
+                <li>Unlimited Access <span class="unlimited">Huge Loan provider with little interest</span></li>
+                <li>three <span class="unlimited">Months</span></li>
+            </ul>
+            <div class="table-buy">
+                <p style="text-decoration: line-through; color:red">@(Model.Basic * 3) <sup>/ mes</sup></p>
+                <button type="submit" class="pricing-action">Subscribe</button>
+
+            </div>
+        </div>
+            }
+            @using (Html.BeginForm())
+            {
+        <div class="pricing-table">
+            <h3 class="pricing-title">Ultimate</h3>
+            <div class="price">&#8358;@Model.Ultimate<sup>/ mes</sup></div>
+            <input type="hidden" value="Ultimate" name="package" />
+            <input type="hidden" value="@Model.Ultimate" name="amount" />
+            <ul class="table-list">
+                <li>Access more Loan <span> providers</span></li>
+                <li>receive update <span>Latest Loan providers</span></li>
+                <li>Unlimited Access <span class="unlimited">Huge Loan provider with little interest</span></li>
+                <li>six <span class="unlimited">Months</span></li>
+            </ul>
+            <!-- Contratar / Comprar -->
+            <div class="table-buy">
+                <p style="text-decoration: line-through; color:red">@(Model.Basic * 6) / @(Model.Premium * 2)<sup>/ mes</sup></p>
+                <button type="submit" class="pricing-action">Subscribe</button>
+
+            </div>
+        </div>
+            }
+        </div>
+    </div>
+    
+
+
+    
+
+
+</body>
+</html>
