@@ -8,6 +8,7 @@ using Autofac;
 using Autofac.Integration.Mvc;
 using Loan.Data;
 using Loan.Data.Services;
+using Microsoft.Owin.Logging;
 
 namespace LoanEvaluator.App_Start
 {
@@ -23,8 +24,7 @@ namespace LoanEvaluator.App_Start
                 .SingleInstance();
             builder.RegisterType<Subscribed>().InstancePerRequest();
             builder.RegisterType<SqlliteDbContext>()
-                .As<IMapLoan>()
-                .InstancePerRequest();
+                .As<IMapLoan>().InstancePerRequest();
             builder.RegisterType<SubscribeMemory>().As<ISubscribed>().InstancePerRequest();
             builder.RegisterType<LoanProviderMemory>().As<ILoanProvides>().InstancePerRequest();
             builder.RegisterType<Clicktrack>().As<ITracker>().InstancePerRequest();

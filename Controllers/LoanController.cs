@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 using LoanEvaluator;
 using Microsoft.AspNet.Identity;
+using NLog;
 
 namespace LoanComparerApp.Controllers
 {
@@ -20,7 +21,7 @@ namespace LoanComparerApp.Controllers
     private readonly ILoanProvides _pd;
     private readonly ITracker _tracker;
     private readonly ISubscribed _subscribed;
-
+    Logger _logger = LogManager.GetCurrentClassLogger();
     public LoanController(ILoan db, IMapLoan map, ILoanProvides pd, ITracker tracker,ISubscribed subscribed)
     {
       this.db = db;
@@ -51,8 +52,17 @@ namespace LoanComparerApp.Controllers
     [ValidateAntiForgeryToken]
     public ActionResult Index(Loans loan)
     {
-      db.Clear();
-      db.Add(loan);
+      try
+      {
+        db.Clear();
+        db.Add(loan);
+      }
+      catch (Exception e)
+      {
+       _logger.Error(e.Message);
+        
+      }
+    
       return RedirectToAction("CheckSite");
     }
 
@@ -64,7 +74,10 @@ namespace LoanComparerApp.Controllers
     public ActionResult CheckSite()
     {
       var model = maps.GetAll(db.GetLoans().amountToBeBorrrowed);
+      try
+      {
 
+     
       if (model == null)
       {
         return RedirectToAction("NotFound");
@@ -74,7 +87,11 @@ namespace LoanComparerApp.Controllers
       {
         return RedirectToAction("NotFound");
       }
-
+      }
+      catch (Exception e)
+      {
+       _logger.Error(e.Message);
+      }
       return View(model);
     }
 

@@ -1,14 +1,10 @@
-﻿@using System.Globalization
-@model Loan.Data.Models.Loans
+﻿@model IEnumerable<Loan.Data.Models.LoanProviders>
 
 @{
-    ViewBag.Title = "SiteDetails";
     Layout = null;
-    var count = 1;
-    var interest = Math.Round((Model.amountToBeBorrrowed * Model.Rate / (int)Model.Duration + 1) + Model.amountToBeBorrrowed, 2);
-    var siteID = ViewBag.id;
-
 }
+
+<!DOCTYPE html>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +46,7 @@
                     <div class="col-12 d-flex justify-content-between">
                         <!-- Logo Area -->
                         <div class="logo">
-                            <a href="@Url.Action("Home","Home")"><img src="/Content/img/core-img/logo.png" alt=""></a>
+                            <a href="@Url.Action("Home")"><img src="/Content/img/core-img/logo.png" alt=""></a>
                         </div>
 
                         <!-- Top Contact Info -->
@@ -87,20 +83,20 @@
                             <div class="classynav">
                                 <ul>
                                     <li><a href="index.html">Home</a></li>
-                                    <li><a href=@Url.Action("About","Home") ">About Us</a></li>
+                                    <li><a href="" @Url.Action("About") ">About Us</a></li>
                                     <li>
                                         <a href="#">Pages</a>
                                         <ul class="dropdown">
-                                            <li><a href=" @Url.Action("Home","Home")">Home</a></li>
+                                            <li><a href="">Home</a></li>
                                             <li><a href="@Url.Action("Index")">About Us</a></li>
-                                            <li><a href="@Url.Action("Services","Home")">Services</a></li>
-                                            <li><a href="@Url.Action("Post","Home")">Post</a></li>
-                                            <li><a href="@Url.Action("SinglePost","Home")">Single Post</a></li>
-                                            <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
-                                            <li><a href="@Url.Action("Element","Home")">Elements</a></li>
+                                            <li><a href="@Url.Action("Services")">Services</a></li>
+                                            <li><a href="@Url.Action("Post")">Post</a></li>
+                                            <li><a href="@Url.Action("SinglePost")">Single Post</a></li>
+                                            <li><a href="@Url.Action("Contact")">Contact</a></li>
+                                            <li><a href="@Url.Action("Element")">Elements</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="@Url.Action("Services","Home")">Services</a></li>
+                                    <li><a href="@Url.Action("Services")">Services</a></li>
                                     <li>
                                         <a href="#">Portfolio</a>
                                         <div class="megamenu">
@@ -142,8 +138,8 @@
                                             </ul>
                                         </div>
                                     </li>
-                                    <li><a href="@Url.Action("Post","Home")">Blog</a></li>
-                                    <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
+                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="#">Contact</a></li>
                                 </ul>
                             </div>
                             <!-- Nav End -->
@@ -158,88 +154,45 @@
             </div>
         </div>
     </header>
-    <section class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(/Content/img/bg-img/13.jpg);">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center">
-                <div class="col-12">
-                    <div class="breadcrumb-content">
-                        <h2>Choose from our pool of Loan providers</h2>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="@Url.Action("Home","Home")">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Apply For A Loan</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    @if (TempData["subscribe"] != null)
-    {
-        <div class="alert alert-info">@TempData["subscribe"]</div>
-    }
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProviderName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UniqueCountVisit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CountVisit)
+            </th>
+            <th></th>
+        </tr>
 
-    <div class="mt-5 container ">
-        <table class="table  table-dark table-hover">
-            <thead>
-            <th> @Html.DisplayNameFor(model => model.WebsiteName)</th>
-            <th> @Html.DisplayNameFor(model => model.amountToBeBorrrowed)  borrowed</th>
-            <th> @Html.DisplayNameFor(model => model.Rate)</th>
-            <th> @Html.DisplayNameFor(model => model.LoanPurpose)</th>
-            </thead>
-            <tbody>
-                <tr>
-                    <td> @Html.DisplayFor(model => model.WebsiteName)</td>
-                    <td> @Html.DisplayFor(model => model.amountToBeBorrrowed)</td>
-                    <td> @Html.DisplayFor(model => model.Rate) %</td>
-                    <td> @Html.DisplayFor(model => model.LoanPurpose)</td>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProviderName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UniqueCountVisit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CountVisit)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
 
-                </tr>
+    </table>
 
-            </tbody>
-        </table>
-        <table class="table table-hover table-dark ">
-            <thead>
-            <th>month</th>
-            <th>payment</th>
-            <th>Balance</th>
-            <th>Rate</th>
-            </thead>
-            <tbody>
-                @for (int i = 0; i < Model.Calculatedloan.Count; i++)
-                {
-
-                    <tr>
-                        <td>Months @(count++)</td>
-                        <td> @Model.Calculatedloan[i].ToString("c2", CultureInfo.CreateSpecificCulture("ng-NG"))</td>
-                        @if (i == 0)
-                        {
-                            <td>&#8358; @interest</td>
-
-                        }
-                        else
-                        {
-                            <td>&#8358; @Decimal.Round((interest -= Decimal.Round(Model.Calculatedloan[i])), 2)</td>
-                        }
-                        <td>@Model.Rate %</td>
-
-
-
-                    </tr>
-
-
-                }
-
-            </tbody>
-
-
-        </table>
-        <div class="btn btn-warning">
-            @Html.ActionLink("book loan", "Redirect", new { Id = siteID })
-
-        </div>
-    </div>
     <footer class="footer-area section-padding-100-0">
         <div class="container">
             <div class="row">
@@ -383,9 +336,6 @@
     <script src="/Content/js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="/Content/js/active.js"></script>
-    @Scripts.Render("~/bundles/jqueryval")
-
-
 </body>
 
 </html>
