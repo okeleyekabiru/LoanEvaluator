@@ -1,55 +1,269 @@
 ﻿@model IEnumerable<Loan.Data.Models.Loans>
 
 @{
-    ViewBag.Title = "AllLoan";
+    Layout = null;
 }
 
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="new">
-    <h2>view All loans</h2>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Title -->
+    <title>Credit - Loan &amp; Credit Company HTML Template</title>
 
-    <p>
-        @Html.ActionLink("Home", "Index")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Firstname)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Lastname)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Occupation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.amountToBeBorrrowed)
-            </th>
-            <th></th>
-        </tr>
+    <!-- Favicon -->
+    <link rel="icon" href="/Content/img/core-img/favicon.ico">
 
-        @foreach (var item in Model)
-        {
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/Content/style.css">
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+        <!-- Top Header Area -->
+        <div class="top-header-area">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12 d-flex justify-content-between">
+                        <!-- Logo Area -->
+                        <div class="logo">
+                            @* <a href="index.html"><img src="/Content/img/core-img/logo.png" alt=""></a> *@
+                            <a href="index.html"><img src="/Content/img/LoanEvaluator.png" alt="" style="width: 7em;"></a>
+                        </div>
+
+                        <!-- Top Contact Info -->
+                        <div class="top-contact-info d-flex align-items-center">
+                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="2 nd Tradition building igbo efon"><img src="/Content/img/core-img/placeholder.png" alt=""> <span>2 nd Tradition building igbo efon</span></a>
+                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="creditoffice@yourfirm.com"><img src="/Content/img/core-img/message.png" alt=""> <span>creditoffice@yourfirm.com</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navbar Area -->
+        <div class="credit-main-menu" id="sticker">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="creditNav">
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="@Url.Action("Home","Home")">Home</a></li>
+                                    <li><a href="@Url.Action("About","Home")">About Us</a></li>
+                                    <li>
+                                        <a href="#">Pages</a>
+                                        <ul class="dropdown">
+                                            <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                                            <li><a href="" @Url.Action("About", "Home")>About Us</a></li>
+
+                                            <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
+
+                                        </ul>
+                                    </li>
+
+                                    <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
+                                    @Html.Partial("_LoginPartial")
+                                </ul>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+
+                        <!-- Contact -->
+                        <div class="contact">
+                            <a href="#"><img src="/Content/img/core-img/call2.png" alt=""> +234 8126136616</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="new">
+        <h2>view All loans</h2>
+
+        <p>
+            @Html.ActionLink("Home", "Index")
+        </p>
+        <table class="table">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Firstname)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Lastname)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Occupation)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.amountToBeBorrrowed)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Firstname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Lastname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Occupation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.amountToBeBorrrowed)
+                </th>
+                <th></th>
             </tr>
-        }
 
-    </table>
-</div>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Firstname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Lastname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Occupation)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.amountToBeBorrrowed)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <!-- Title -->
+        <title>Credit - Loan &amp; Credit Company HTML Template</title>
+
+        <!-- Favicon -->
+        <link rel="icon" href="/Content/img/core-img/favicon.ico">
+
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="/Content/style.css">
+
+    </head>
+
+    <body>
+        <!-- Preloader -->
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="lds-ellipsis">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+        <!-- ##### Header Area Start ##### -->
+        <header class="header-area">
+            <!-- Top Header Area -->
+            <div class="top-header-area">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-12 d-flex justify-content-between">
+                            <!-- Logo Area -->
+                            <div class="logo">
+                                @* <a href="index.html"><img src="/Content/img/core-img/logo.png" alt=""></a> *@
+                                <a href="index.html"><img src="/Content/img/LoanEvaluator.png" alt="" style="width: 7em;"></a>
+                            </div>
+
+                            <!-- Top Contact Info -->
+                            <div class="top-contact-info d-flex align-items-center">
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="2 nd Tradition building igbo efon"><img src="/Content/img/core-img/placeholder.png" alt=""> <span>2 nd Tradition building igbo efon</span></a>
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="creditoffice@yourfirm.com"><img src="/Content/img/core-img/message.png" alt=""> <span>creditoffice@yourfirm.com</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navbar Area -->
+            <div class="credit-main-menu" id="sticker">
+                <div class="classy-nav-container breakpoint-off">
+                    <div class="container">
+                        <!-- Menu -->
+                        <nav class="classy-navbar justify-content-between" id="creditNav">
+
+                            <!-- Navbar Toggler -->
+                            <div class="classy-navbar-toggler">
+                                <span class="navbarToggler"><span></span><span></span><span></span></span>
+                            </div>
+
+                            <!-- Menu -->
+                            <div class="classy-menu">
+
+                                <!-- Close Button -->
+                                <div class="classycloseIcon">
+                                    <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                                </div>
+
+                                <!-- Nav Start -->
+                                <div class="classynav">
+                                    <ul>
+                                        <li><a href="@Url.Action("Home","Home")">Home</a></li>
+                                        <li><a href="@Url.Action("About","Home")">About Us</a></li>
+                                        <li>
+                                            <a href="#">Pages</a>
+                                            <ul class="dropdown">
+                                                <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                                                <li><a href="" @Url.Action("About", "Home")>About Us</a></li>
+                                                <li><a href="@Url.Action("Services","Home")">Services</a></li>
+                                                <li><a href="@Url.Action("Post","Home")">Post</a></li>
+                                                <li><a href="@Url.Action("SinglePost","Home")">Single Post</a></li>
+                                                <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
+                                                <li><a href="@Url.Action("Element","Home")">Elements</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="@Url.Action("Services","Home")">Services</a></li>
+                                        <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
+                                        @Html.Partial("_LoginPartial")
+                                    </ul>
+                                </div>
+                                <!-- Nav End -->
+                            </div>
+
+                            <!-- Contact -->
+                            <div class="contact">
+                                <a href="#"><img src="/Content/img/core-img/call2.png" alt=""> +234 8126136616</a>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>

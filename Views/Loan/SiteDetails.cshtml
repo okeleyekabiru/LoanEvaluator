@@ -5,7 +5,6 @@
     ViewBag.Title = "SiteDetails";
     Layout = null;
     var count = 1;
-    var interest = Math.Round((Model.amountToBeBorrrowed * Model.Rate / (int)Model.Duration + 1) + Model.amountToBeBorrrowed, 2);
     var siteID = ViewBag.id;
 
 }
@@ -207,22 +206,14 @@
             <th>Rate</th>
             </thead>
             <tbody>
-                @for (int i = 0; i < Model.Calculatedloan.Count; i++)
-                {
-
+                @foreach(var item in Model.CalculatedLoan)
+                { 
                     <tr>
                         <td>Months @(count++)</td>
-                        <td> @Model.Calculatedloan[i].ToString("c2", CultureInfo.CreateSpecificCulture("ng-NG"))</td>
-                        @if (i == 0)
-                        {
-                            <td>&#8358; @interest</td>
+                        <td>@item.Key.ToString("c2", CultureInfo.CreateSpecificCulture("ng-NG"))</td>
+                        <td> @item.Value.ToString("c2", CultureInfo.CreateSpecificCulture("ng-NG"))</td>
 
-                        }
-                        else
-                        {
-                            <td>&#8358; @Decimal.Round((interest -= Decimal.Round(Model.Calculatedloan[i])), 2)</td>
-                        }
-                        <td>@Model.Rate %</td>
+                        <td>@Model.Rate %</td>b
 
 
 

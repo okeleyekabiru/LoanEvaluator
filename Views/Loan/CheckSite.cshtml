@@ -44,7 +44,8 @@
                     <div class="col-12 d-flex justify-content-between">
                         <!-- Logo Area -->
                         <div class="logo">
-                            <a href="@Url.Action("Home","Home")"><img src="/Content/img/core-img/logo.png" alt=""></a>
+                            @* <a href="index.html"><img src="/Content/img/core-img/logo.png" alt=""></a> *@
+                            <a href="index.html"><img src="/Content/img/LoanEvaluator.png" alt="" style="width: 7em;"></a>
                         </div>
 
                         <!-- Top Contact Info -->
@@ -81,63 +82,20 @@
                             <div class="classynav">
                                 <ul>
                                     <li><a href="@Url.Action("Home","Home")">Home</a></li>
-                                    <li><a href="@Url.Action("About","Home") ">About Us</a></li>
+                                    <li><a href="@Url.Action("About","Home")">About Us</a></li>
                                     <li>
                                         <a href="#">Pages</a>
                                         <ul class="dropdown">
-                                            <li><a href=" @Url.Action("Home","Home")">Home</a></li>
-                                            <li><a href="@Url.Action("Index")">About Us</a></li>
-                                            <li><a href="@Url.Action("Services","Home")">Services</a></li>
-                                            <li><a href="@Url.Action("Post","Home")">Post</a></li>
-                                            <li><a href="@Url.Action("SinglePost","Home")">Single Post</a></li>
+                                            <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                                            <li><a href="" @Url.Action("About", "Home")>About Us</a></li>
+
                                             <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
-                                            <li><a href="@Url.Action("Element","Home")">Elements</a></li>
+
                                         </ul>
                                     </li>
-                                    <li><a href="@Url.Action("Services","Home")">Services</a></li>
-                                    <li>
-                                        <a href="#">Portfolio</a>
-                                        <div class="megamenu">
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="#">Portfolio 1</a></li>
-                                                <li><a href="#">Portfolio 2</a></li>
-                                                <li><a href="#">Portfolio 3</a></li>
-                                                <li><a href="#">Portfolio 4</a></li>
-                                                <li><a href="#">Portfolio 5</a></li>
-                                                <li><a href="#">Portfolio 6</a></li>
-                                                <li><a href="#">Portfolio 7</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="#">Portfolio 8</a></li>
-                                                <li><a href="#">Portfolio 9</a></li>
-                                                <li><a href="#">Portfolio 10</a></li>
-                                                <li><a href="#">Portfolio 11</a></li>
-                                                <li><a href="#">Portfolio 12</a></li>
-                                                <li><a href="#">Portfolio 13</a></li>
-                                                <li><a href="#">Portfolio 14</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="#">Portfolio 15</a></li>
-                                                <li><a href="#">Portfolio 16</a></li>
-                                                <li><a href="#">Portfolio 17</a></li>
-                                                <li><a href="#">Portfolio 18</a></li>
-                                                <li><a href="#">Portfolio 19</a></li>
-                                                <li><a href="#">Portfolio 20</a></li>
-                                                <li><a href="#">Portfolio 21</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="#">Portfolio 22</a></li>
-                                                <li><a href="#">Portfolio 23</a></li>
-                                                <li><a href="#">Portfolio 24</a></li>
-                                                <li><a href="#">Portfolio 25</a></li>
-                                                <li><a href="#">Portfolio 26</a></li>
-                                                <li><a href="#">Portfolio 27</a></li>
-                                                <li><a href="#">Portfolio 28</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li><a href="@Url.Action("Post","Home")">Blog</a></li>
+
                                     <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
+                                    @Html.Partial("_LoginPartial")
                                 </ul>
                             </div>
                             <!-- Nav End -->
@@ -152,6 +110,7 @@
             </div>
         </div>
     </header>
+
     <section class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(/Content/img/bg-img/13.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
@@ -270,6 +229,11 @@
                                 <li><a href="#">Financial Solutions</a></li>
                             </ul>
                         </nav>
+
+
+
+
+
                     </div>
                 </div>
 
@@ -349,15 +313,13 @@
                     <div class="col-12">
                         <div class="copywrite-content d-flex flex-wrap justify-content-between align-items-center">
                             <!-- Footer Logo -->
-                            <a href="index.html" class="footer-logo"><img src="/Content/img/core-img/logo.png" alt=""></a>
+                            <a href="index.html" class="footer-logo"><img src="/Content/img/LoanEvaluator.png" alt="" style="width: 7em;"></a>
 
                             <!-- Copywrite Text -->
                             <p class="copywrite-text">
                                 <a href="#">
-                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                    Copyright &copy;
-                                    @DateTime.Now.Year All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
+                                    Copyright &copy; @DateTime.Now.Year
                                 </a>
                             </p>
                         </div>
@@ -378,9 +340,6 @@
     <script src="/Content/js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="/Content/js/active.js"></script>
-    @Scripts.Render("~/bundles/jqueryval")
-
-
 </body>
 
 </html>

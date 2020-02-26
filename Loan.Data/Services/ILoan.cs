@@ -16,7 +16,7 @@ namespace Loan.Data.Services
         Loans Get();
         Loans GetLoans();
 
-        List<decimal> CalculateInterest(decimal rate);
+        Dictionary<decimal, decimal> CalculateInterest(decimal rate);
         void Clear();
     }
 }

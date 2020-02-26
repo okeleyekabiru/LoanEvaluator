@@ -115,7 +115,7 @@ namespace LoanComparerApp.Controllers
 
       models.WebsiteName = model.Loansite;
       models.Rate = model.Rate;
-      models.Calculatedloan = db.CalculateInterest(model.Rate);
+      models.CalculatedLoan = db.CalculateInterest(model.Rate);
 
       return View(models);
     }

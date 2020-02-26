@@ -297,6 +297,7 @@
     <Content Include="Content\img\core-img\message2.png" />
     <Content Include="Content\img\core-img\pencil.png" />
     <Content Include="Content\img\core-img\placeholder.png" />
+    <Content Include="Content\img\LoanEvaluator.png" />
     <Content Include="Content\js\active.js" />
     <Content Include="Content\js\bootstrap\bootstrap.min.js" />
     <Content Include="Content\js\bootstrap\popper.min.js" />
@@ -449,7 +450,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -489,10 +489,6 @@
     <Content Include="Views\Loan\Index.cshtml" />
     <Content Include="Views\Loan\AllLoan.cshtml" />
     <Content Include="Views\Home\Home.cshtml" />
-    <Content Include="Views\Home\Services.cshtml" />
-    <Content Include="Views\Home\Post.cshtml" />
-    <Content Include="Views\Home\Element.cshtml" />
-    <Content Include="Views\Home\SinglePost.cshtml" />
     <Content Include="Views\Loan\Loanprovider.cshtml" />
     <Content Include="Views\Shared\_subscribepackage.cshtml" />
     <Content Include="Views\Subscribed\Subscribe.cshtml" />

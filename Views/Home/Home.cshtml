@@ -10,7 +10,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
     <!-- Title -->
     <title>Credit - Loan &amp; Credit Company HTML Template</title>
 
@@ -42,7 +41,8 @@
                     <div class="col-12 d-flex justify-content-between">
                         <!-- Logo Area -->
                         <div class="logo">
-                            <a href="index.html"><img src="/Content/img/core-img/logo.png" alt=""></a>
+                            @* <a href="index.html"><img src="/Content/img/core-img/logo.png" alt=""></a> *@
+                            <a href="index.html"><img src="/Content/img/LoanEvaluator.png" alt="" style="width: 7em;"></a>
                         </div>
 
                         <!-- Top Contact Info -->
@@ -78,62 +78,20 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="@Url.Action("Home")">Home</a></li>
-                                    <li><a href="@Url.Action("About")">About Us</a></li>
-                                    <li><a href="#">Pages</a>
+                                    <li><a href="@Url.Action("Home","Home")">Home</a></li>
+                                    <li><a href="@Url.Action("About","Home")">About Us</a></li>
+                                    <li>
+                                        <a href="#">Pages</a>
                                         <ul class="dropdown">
-                                            <li><a href="@Url.Action("Index")">Home</a></li>
-                                            <li><a href=""@Url.Action("About")">About Us</a></li>
-                                            <li><a href="@Url.Action("Services")">Services</a></li>
-                                            <li><a href="@Url.Action("Post")">Post</a></li>
-                                            <li><a href="@Url.Action("SinglePost")">Single Post</a></li>
-                                            <li><a href="@Url.Action("Contact")">Contact</a></li>
-                                            <li><a href="@Url.Action("Element")">Elements</a></li>
+                                            <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                                            <li><a href="" @Url.Action("About", "Home")>About Us</a></li>
+
+                                            <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
+
                                         </ul>
                                     </li>
-                                    <li><a href="@Url.Action("Services")">Services</a></li>
-                                    <li><a href="#">Portfolio</a>
-                                        <div class="megamenu">
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="#">Portfolio 1</a></li>
-                                                <li><a href="#">Portfolio 2</a></li>
-                                                <li><a href="#">Portfolio 3</a></li>
-                                                <li><a href="#">Portfolio 4</a></li>
-                                                <li><a href="#">Portfolio 5</a></li>
-                                                <li><a href="#">Portfolio 6</a></li>
-                                                <li><a href="#">Portfolio 7</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="#">Portfolio 8</a></li>
-                                                <li><a href="#">Portfolio 9</a></li>
-                                                <li><a href="#">Portfolio 10</a></li>
-                                                <li><a href="#">Portfolio 11</a></li>
-                                                <li><a href="#">Portfolio 12</a></li>
-                                                <li><a href="#">Portfolio 13</a></li>
-                                                <li><a href="#">Portfolio 14</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="#">Portfolio 15</a></li>
-                                                <li><a href="#">Portfolio 16</a></li>
-                                                <li><a href="#">Portfolio 17</a></li>
-                                                <li><a href="#">Portfolio 18</a></li>
-                                                <li><a href="#">Portfolio 19</a></li>
-                                                <li><a href="#">Portfolio 20</a></li>
-                                                <li><a href="#">Portfolio 21</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="#">Portfolio 22</a></li>
-                                                <li><a href="#">Portfolio 23</a></li>
-                                                <li><a href="#">Portfolio 24</a></li>
-                                                <li><a href="#">Portfolio 25</a></li>
-                                                <li><a href="#">Portfolio 26</a></li>
-                                                <li><a href="#">Portfolio 27</a></li>
-                                                <li><a href="#">Portfolio 28</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li><a href="post.html">Blog</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+
+                                    <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
                                     @Html.Partial("_LoginPartial")
                                 </ul>
                             </div>
@@ -142,15 +100,15 @@
 
                         <!-- Contact -->
                         <div class="contact">
-                            <a href="#"><img src="/Content/img/core-img/call2.png" alt=""> +800 49 900 900</a>
+                            <a href="#"><img src="/Content/img/core-img/call2.png" alt=""> +234 8126136616</a>
                         </div>
                     </nav>
                 </div>
             </div>
         </div>
     </header>
-    <!-- ##### Header Area End ##### -->
 
+    <!-- ##### Header Area End ##### -->
     <!-- ##### Hero Area Start ##### -->
     <div class="hero-area">
         <div class="hero-slideshow owl-carousel">
@@ -166,7 +124,7 @@
                             <div class="welcome-text text-center">
                                 <h6 data-animation="fadeInUp" data-delay="100ms">2 years interest</h6>
                                 <h2 data-animation="fadeInUp" data-delay="300ms">get your <span>loan</span> now</h2>
-                                <p data-animation="fadeInUp" data-delay="500ms">Vestibulum eu vehicula elit, nec elementum orci. Praesent aliquet ves tibulum tempus. Pellentesque posuere pharetra turpis, eget finibus erat porta placerat.</p>
+                                <p data-animation="fadeInUp" data-delay="500ms">Get trending news on latest offers and servirces from our partnering companies such as renmoney ,startcredit  etc.</p>
                                 <a href="@Url.Action("Index","Loan")" class="btn credit-btn mt-50" data-animation="fadeInUp" data-delay="700ms">Discover</a>
                             </div>
                         </div>
@@ -187,7 +145,7 @@
                             <div class="welcome-text text-center">
                                 <h6 data-animation="fadeInDown" data-delay="100ms">2 years interest</h6>
                                 <h2 data-animation="fadeInDown" data-delay="300ms">get your <span>loan</span> now</h2>
-                                <p data-animation="fadeInDown" data-delay="500ms">Vestibulum eu vehicula elit, nec elementum orci. Praesent aliquet ves tibulum tempus. Pellentesque posuere pharetra turpis, eget finibus erat porta placerat.</p>
+                                <p data-animation="fadeInDown" data-delay="500ms">Get trending news on latest offers and servirces from our partnering companies such as renmoney ,startcredit  etc.</p>
                                 <a href="@Url.Action("Index","Loan")" class="btn credit-btn mt-50" data-animation="fadeInDown" data-delay="700ms">Discover</a>
                             </div>
                         </div>
@@ -208,7 +166,7 @@
                             <div class="welcome-text text-center">
                                 <h6 data-animation="fadeInUp" data-delay="100ms">2 years interest</h6>
                                 <h2 data-animation="fadeInUp" data-delay="300ms">get your <span>loan</span> now</h2>
-                                <p data-animation="fadeInUp" data-delay="500ms">Vestibulum eu vehicula elit, nec elementum orci. Praesent aliquet ves tibulum tempus. Pellentesque posuere pharetra turpis, eget finibus erat porta placerat.</p>
+                                <p data-animation="fadeInUp" data-delay="500ms">Get trending news on latest offers and servirces from our partnering companies such as renmoney ,startcredit  etc.</p>
                                 <a href="@Url.Action("Index","Loan")" class="btn credit-btn mt-50" data-animation="fadeInUp" data-delay="700ms">Discover</a>
                             </div>
                         </div>
@@ -229,7 +187,7 @@
                             <div class="welcome-text text-center">
                                 <h6 data-animation="fadeInDown" data-delay="100ms">2 years interest</h6>
                                 <h2 data-animation="fadeInDown" data-delay="300ms">get your <span>loan</span> now</h2>
-                                <p data-animation="fadeInDown" data-delay="500ms">Vestibulum eu vehicula elit, nec elementum orci. Praesent aliquet ves tibulum tempus. Pellentesque posuere pharetra turpis, eget finibus erat porta placerat.</p>
+                                <p data-animation="fadeInDown" data-delay="500ms">Get trending news on latest offers and servirces from our partnering companies such as renmoney ,startcredit  etc.</p>
                                 <a href="@Url.Action("Index","Loan")" class="btn credit-btn mt-50" data-animation="fadeInDown" data-delay="700ms">Discover</a>
                             </div>
                         </div>
@@ -242,7 +200,6 @@
         </div>
     </div>
     <!-- ##### Hero Area End ##### -->
-
     <!-- ##### Features Area Start ###### -->
     <section class="features-area section-padding-100-0">
         <div class="container">
@@ -255,7 +212,7 @@
                             <p>Take look at our</p>
                             <h2>Our Loans</h2>
                         </div>
-                        <h6>In vitae nisi aliquam, scelerisque leo a, volutpat sem. Viva mus rutrum dui fermentum eros hendrerit.</h6>
+                        <h6>we offer different services that helps you grow in wealth .</h6>
                         <a href="@Url.Action("Index","Loan")" class="btn credit-btn mt-50">Discover</a>
                     </div>
                 </div>
@@ -281,7 +238,6 @@
         </div>
     </section>
     <!-- ##### Features Area End ###### -->
-
     <!-- ##### Call To Action Start ###### -->
     <section class="cta-area d-flex flex-wrap">
         <!-- Cta Thumbnail -->
@@ -295,7 +251,10 @@
                 <p>Bold desing and beyound</p>
                 <h2>Helping small businesses like yours</h2>
             </div>
-            <h6>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem. Duis non volutpat arcu, eu mollis tellus. Sed finibus aliquam neque sit amet sod ales. Maecenas sed magna tempor, efficitur maur is in, sollicitudin augue. Praesent pretium finibus quam.</h6>
+            <h6>
+                Get the latest and most efficient loan website Statistics a nd analysis without any penny
+                get latest and trending offers from top sites in nigeria.
+            </h6>
             <div class="d-flex flex-wrap mt-50">
                 <!-- Single Skills Area -->
                 <div class="single-skils-area mb-70 mr-5">
@@ -331,7 +290,6 @@
         </div>
     </section>
     <!-- ##### Call To Action End ###### -->
-
     <!-- ##### Call To Action Start ###### -->
     <section class="cta-2-area wow fadeInUp" data-wow-delay="100ms">
         <div class="container">
@@ -351,7 +309,6 @@
         </div>
     </section>
     <!-- ##### Call To Action End ###### -->
-
     <!-- ##### Services Area Start ###### -->
     <section class="services-area section-padding-100-0">
         <div class="container">
@@ -375,7 +332,7 @@
                         </div>
                         <div class="text">
                             <h5>All the loans</h5>
-                            <p>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem.</p>
+                            <p>We have Many Loan Providers Across Nigeria That Give Loan At Discounted Rate</p>
                         </div>
                     </div>
                 </div>
@@ -388,7 +345,7 @@
                         </div>
                         <div class="text">
                             <h5>Easy and fast answer</h5>
-                            <p>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem.</p>
+                            <p>Book Your Loan And Get Fast Response From Our Providers</p>
                         </div>
                     </div>
                 </div>
@@ -401,7 +358,7 @@
                         </div>
                         <div class="text">
                             <h5>No additional papers</h5>
-                            <p>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem.</p>
+                            <p>No Addition registration needed once You Subscribe You Get full Access To Our Pool Of Providers</p>
                         </div>
                     </div>
                 </div>
@@ -414,7 +371,7 @@
                         </div>
                         <div class="text">
                             <h5>Secure financial services</h5>
-                            <p>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem.</p>
+                            <p>Secure The Best Loan Provider You Can Ever Wish for With Very Little Interest.</p>
                         </div>
                     </div>
                 </div>
@@ -427,7 +384,7 @@
                         </div>
                         <div class="text">
                             <h5>Good investments</h5>
-                            <p>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem.</p>
+                            <p>Get Sufficient and Huge Money to Finance Your Self For Your Investment .</p>
                         </div>
                     </div>
                 </div>
@@ -440,7 +397,7 @@
                         </div>
                         <div class="text">
                             <h5>Accumulation goals</h5>
-                            <p>Morbi ut dapibus dui. Sed ut iaculis elit, quis varius mauris. Integer ut ultricies orci, lobortis egestas sem.</p>
+                            <p>Our goal is to make people get loan for the various needs</p>
                         </div>
                     </div>
                 </div>
@@ -448,7 +405,6 @@
         </div>
     </section>
     <!-- ##### Services Area End ###### -->
-
     <!-- ##### Miscellaneous Area Start ###### -->
     <section class="miscellaneous-area bg-gray section-padding-100-0">
         <div class="container">
@@ -562,7 +518,6 @@
         </div>
     </section>
     <!-- ##### Miscellaneous Area End ###### -->
-
     <!-- ##### Newsletter Area Start ###### -->
     <section class="newsletter-area section-padding-100 bg-img jarallax" style="background-image: url(/Content/img/bg-img/6.jpg);">
         <div class="container">
@@ -574,14 +529,13 @@
                             <input type="email" name="nl-email" id="nlemail" placeholder="Your e-mail">
                             <button type="submit">Subscribe</button>
                         </form>
-                        <p>Curabitur elit turpis, maximus quis ullamcorper sed, maximus eu neque. Cras ultrices erat nec auctor blandit.</p>
+                        <p>Subscribe to Loan Evaulator and Get Latest features</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- ##### Newsletter Area End ###### -->
-
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area section-padding-100-0">
         <div class="container">
@@ -618,6 +572,11 @@
                                 <li><a href="#">Financial Solutions</a></li>
                             </ul>
                         </nav>
+
+
+
+
+
                     </div>
                 </div>
 
@@ -697,14 +656,15 @@
                     <div class="col-12">
                         <div class="copywrite-content d-flex flex-wrap justify-content-between align-items-center">
                             <!-- Footer Logo -->
-                            <a href="index.html" class="footer-logo"><img src="/Content/img/core-img/logo.png" alt=""></a>
+                            <a href="index.html" class="footer-logo"><img src="/Content/img/LoanEvaluator.png" alt="" style="width: 7em;"></a>
 
                             <!-- Copywrite Text -->
-                            <p class="copywrite-text"><a href="#">
-    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-    Copyright &copy; @DateTime.Now.Year All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-</a></p>
+                            <p class="copywrite-text">
+                                <a href="#">
+
+                                    Copyright &copy; @DateTime.Now.Year
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -712,7 +672,6 @@
         </div>
     </footer>
     <!-- ##### Footer Area Start ##### -->
-
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
     <script src="/Content/js/jquery/jquery-2.2.4.min.js"></script>

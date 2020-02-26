@@ -23,21 +23,21 @@ namespace Loan.Data.Services
 
         }
 
-    public List<decimal> CalculateInterest(decimal rate)
+    public Dictionary<decimal, decimal> CalculateInterest(decimal rate)
     {
       
-       var filter = new List<decimal>();
+       var filter = new Dictionary<decimal,decimal>();
         int count = 0;
         var Rate = rate;
         var Amount =  FilledLoan[0].amountToBeBorrrowed;
-        var duration =  (decimal)FilledLoan[0].Duration + 1;
+        var duration =  (decimal)FilledLoan[0].Duration + 1; 
         var interest =( Amount * Rate / duration) ;
         var LoanWithInterest = Amount + interest;
         var loanPerMonth = LoanWithInterest / duration;
         while (count < duration)
         {
             
-            filter.Add(loanPerMonth);
+            filter.Add(decimal.Round( loanPerMonth), decimal.Round( LoanWithInterest-=loanPerMonth));
             count++;
         }
 

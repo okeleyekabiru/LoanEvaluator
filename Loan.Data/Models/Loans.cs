@@ -27,8 +27,8 @@ namespace Loan.Data.Models
         [Required]
         public Duration  Duration  { get; set; }
         public  string WebsiteName { get; set; }
-        public List<decimal> Calculatedloan { get; set; } = new List<decimal>();
-      
+        public Dictionary<decimal, decimal> CalculatedLoan { get; set; }
+
 
     }
 }

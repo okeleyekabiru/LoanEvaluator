@@ -30,24 +30,7 @@ namespace LoanEvaluator.Controllers
             return View();
         }
 
-        public ActionResult Services()
-        {
-            return View();
-        }
-
-        public ActionResult Post()
-        {
-            return View();
-        }
-
-        public ActionResult Element()
-        {
-            return View();
-        }
-
-        public ActionResult SinglePost()
-        {
-            return View();
-        }
+      
+    
     }
 }

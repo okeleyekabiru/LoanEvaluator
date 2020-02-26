@@ -45,7 +45,8 @@
                     <div class="col-12 d-flex justify-content-between">
                         <!-- Logo Area -->
                         <div class="logo">
-                            <a href="@Url.Action("Home")"><img src="/Content/img/core-img/logo.png" alt=""></a>
+                            @* <a href="index.html"><img src="/Content/img/core-img/logo.png" alt=""></a> *@
+                            <a href="index.html"><img src="/Content/img/LoanEvaluator.png" alt="" style="width: 7em;"></a>
                         </div>
 
                         <!-- Top Contact Info -->
@@ -81,64 +82,21 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="" @Url.Action("About","Home")>About Us</a></li>
+                                    <li><a href="@Url.Action("Home","Home")">Home</a></li>
+                                    <li><a href="@Url.Action("About","Home")">About Us</a></li>
                                     <li>
                                         <a href="#">Pages</a>
                                         <ul class="dropdown">
-                                            <li><a href="">Home</a></li>
-                                            <li><a href="@Url.Action("Index")">About Us</a></li>
-                                            <li><a href="@Url.Action("Services","Home")">Services</a></li>
-                                            <li><a href="@Url.Action("Post","Home")">Post</a></li>
-                                            <li><a href="@Url.Action("SinglePost","Home")">Single Post</a></li>
+                                            <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                                            <li><a href="" @Url.Action("About", "Home")>About Us</a></li>
+
                                             <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
-                                            <li><a href="@Url.Action("Element","Home")">Elements</a></li>
+
                                         </ul>
                                     </li>
-                                    <li><a href="@Url.Action("Services","Home")">Services</a></li>
-                                    <li>
-                                        <a href="#">Portfolio</a>
-                                        <div class="megamenu">
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="#">Portfolio 1</a></li>
-                                                <li><a href="#">Portfolio 2</a></li>
-                                                <li><a href="#">Portfolio 3</a></li>
-                                                <li><a href="#">Portfolio 4</a></li>
-                                                <li><a href="#">Portfolio 5</a></li>
-                                                <li><a href="#">Portfolio 6</a></li>
-                                                <li><a href="#">Portfolio 7</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="#">Portfolio 8</a></li>
-                                                <li><a href="#">Portfolio 9</a></li>
-                                                <li><a href="#">Portfolio 10</a></li>
-                                                <li><a href="#">Portfolio 11</a></li>
-                                                <li><a href="#">Portfolio 12</a></li>
-                                                <li><a href="#">Portfolio 13</a></li>
-                                                <li><a href="#">Portfolio 14</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="#">Portfolio 15</a></li>
-                                                <li><a href="#">Portfolio 16</a></li>
-                                                <li><a href="#">Portfolio 17</a></li>
-                                                <li><a href="#">Portfolio 18</a></li>
-                                                <li><a href="#">Portfolio 19</a></li>
-                                                <li><a href="#">Portfolio 20</a></li>
-                                                <li><a href="#">Portfolio 21</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="#">Portfolio 22</a></li>
-                                                <li><a href="#">Portfolio 23</a></li>
-                                                <li><a href="#">Portfolio 24</a></li>
-                                                <li><a href="#">Portfolio 25</a></li>
-                                                <li><a href="#">Portfolio 26</a></li>
-                                                <li><a href="#">Portfolio 27</a></li>
-                                                <li><a href="#">Portfolio 28</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li><a href="@Url.Action("Post","Home")">Blog</a></li>
+
                                     <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
+                                    @Html.Partial("_LoginPartial")
                                 </ul>
                             </div>
                             <!-- Nav End -->
@@ -153,6 +111,7 @@
             </div>
         </div>
     </header>
+
 
     @using (Html.BeginForm())
     {
