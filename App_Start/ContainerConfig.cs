@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
+﻿using System.Web.Http;
 using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
+using Autofac.Integration.WebApi;
 using Loan.Data;
 using Loan.Data.Services;
-using Microsoft.Owin.Logging;
 
 namespace LoanEvaluator.App_Start
 {
@@ -19,6 +15,7 @@ namespace LoanEvaluator.App_Start
         {
             var builder = new ContainerBuilder();
             builder.RegisterControllers((typeof(MvcApplication).Assembly));
+            builder.RegisterApiControllers(typeof(MvcApplication).Assembly);
             builder.RegisterType<MemoryStorage>()
                 .As<ILoan>()
                 .SingleInstance();
@@ -31,7 +28,8 @@ namespace LoanEvaluator.App_Start
             builder.RegisterType<LoanDbContext>().InstancePerRequest();
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
-           
+            httpconfiguration.DependencyResolver = new AutofacWebApiDependencyResolver(container);
+
 
         }
     }

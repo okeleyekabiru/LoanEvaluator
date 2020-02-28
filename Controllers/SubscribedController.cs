@@ -21,15 +21,14 @@ namespace LoanEvaluator.Controllers
         private static string ReturnUrl;
         private readonly ISubscribed _subscribed;
         private readonly Subscribed _subscriber;
-        private readonly ILogger _logger;
         private static decimal amount;
         private static string Reference;
 
-        public SubscribedController(ISubscribed _subscribed, Subscribed subscriber, ILogger logger)
+        public SubscribedController(ISubscribed _subscribed, Subscribed subscriber)
         {
             this._subscribed = _subscribed;
             _subscriber = subscriber;
-            _logger = logger;
+       
         }
 
         // GET: Subscribed
@@ -46,8 +45,7 @@ namespace LoanEvaluator.Controllers
         public async Task<ActionResult> Subscribe(decimal amount)
         {
             var id = (int) Session["providerId"];
-            // var callbackurl = Request.Url.ToString();
-            var callbackurl = System.Web.HttpContext.Current.Request.UrlReferrer.ToString();
+            var callbackurl = Request.Url.ToString(); ;
             var price = (int) amount * 100;
             var useremail = User.Identity.GetUserName();
             var connectionInstance = new PaystackTransaction(ConfigurationManager.AppSettings["Credential"]);
@@ -63,7 +61,7 @@ namespace LoanEvaluator.Controllers
                 Response.AddHeader("Access-Control-Allow-Origin", "*");
                 Response.AppendHeader("Access-Control-Allow-Origin", "*");
                 Response.Redirect(response.data.authorization_url); //Redirects your browser to the secure URL
-                _logger.WriteInformation(response.message);
+               
             }
 
             string reference = Reference;
@@ -92,8 +90,8 @@ namespace LoanEvaluator.Controllers
             }
             catch (Exception e)
             {
-                _logger.WriteError(e.ToString());
-                throw;
+                Console.Write(e.InnerException.ToString() ?? e.Message); 
+
             }
 
             return RedirectToAction("Failed", "Subscribed");
@@ -107,8 +105,7 @@ namespace LoanEvaluator.Controllers
         public ActionResult MyNextAction()
         {
             // get the current urls
-            var callbackurl = Request.Url.ToString();
-            return Redirect(Request.QueryString["r"]);
+            return Redirect(BusinessLogic.UrlList[0]);
         }
     }
 }

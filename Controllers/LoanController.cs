@@ -8,6 +8,7 @@ using Loan.Data.Models;
 using System.Web.Routing;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
+using Loan.Data;
 using LoanEvaluator;
 using Microsoft.AspNet.Identity;
 using NLog;
@@ -154,6 +155,7 @@ namespace LoanComparerApp.Controllers
       }
 
       var returnUrl = Request.Url.ToString();
+      BusinessLogic.UrlList.Add(returnUrl);
       var routeValues = new RouteValueDictionary
       {
         {"id", Id},

@@ -208,16 +208,17 @@
             <tbody>
                 @foreach(var item in Model.CalculatedLoan)
                 { 
-                    <tr>
-                        <td>Months @(count++)</td>
-                        <td>@item.Key.ToString("c2", CultureInfo.CreateSpecificCulture("ng-NG"))</td>
-                        <td> @item.Value.ToString("c2", CultureInfo.CreateSpecificCulture("ng-NG"))</td>
-
-                        <td>@Model.Rate %</td>b
+                <tr>
+                    <td>Months @(count++)</td>
+                    <td> @item.Value.ToString("c2", CultureInfo.CreateSpecificCulture("ng-NG"))</td>
+                    <td>@item.Key.ToString("c2", CultureInfo.CreateSpecificCulture("ng-NG"))</td>
 
 
+                    <td>@Model.Rate %</td>
 
-                    </tr>
+
+
+                </tr>
 
 
                 }

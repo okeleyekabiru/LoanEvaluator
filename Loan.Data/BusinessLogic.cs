@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Loan.Data.Models;
 
 namespace Loan.Data
 {
   
  public class BusinessLogic
-  {
-    
+ {
+   public static List<string> UrlList { get; set; } = new List<string>();
     public static Subscribed ActivateSubscribed(decimal amount,string response,string userid,string username)
     {
       var _subscriber = new Subscribed();
@@ -52,5 +53,7 @@ namespace Loan.Data
       return _subscriber;
 
     }
+
+   
   }
 }

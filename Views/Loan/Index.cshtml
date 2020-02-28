@@ -91,14 +91,17 @@
                                     <li>
                                         <a href="#">Pages</a>
                                         <ul class="dropdown">
-                                            <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                                            <li><a href="@Url.Action("Home","Home")">Home</a></li>
                                             <li><a href="" @Url.Action("About", "Home")>About Us</a></li>
 
                                             <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
 
                                         </ul>
                                     </li>
-
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        <li><a href="@Url.Action("AllView","Admin")">Visits</a></li>
+                                    }
                                     <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
                                     @Html.Partial("_LoginPartial")
                                 </ul>

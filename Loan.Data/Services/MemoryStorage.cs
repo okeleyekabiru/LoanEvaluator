@@ -37,7 +37,7 @@ namespace Loan.Data.Services
         while (count < duration)
         {
             
-            filter.Add(decimal.Round( loanPerMonth), decimal.Round( LoanWithInterest-=loanPerMonth));
+            filter.Add( decimal.Round( LoanWithInterest-=loanPerMonth), decimal.Round(loanPerMonth));
             count++;
         }
 

@@ -27,6 +27,7 @@ namespace LoanEvaluator.Controllers
             try
             {
                 model = _db.GetAllLoanProvider();
+//                ViewBag.Unique.
                 return View(model);
             }
             catch (Exception e)
